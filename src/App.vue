@@ -59,7 +59,7 @@
     <div class="my-3 text-center">
       <button
         @click="loadMorePokemons"
-        class="bg-indigo-500 text-white py-2 px-4 rounded-full"
+        class="bg-indigo-500 text-white py-2 mt-5 px-4 rounded-full"
       >
         Load More
       </button>
