@@ -6,6 +6,8 @@ Used Pokedex API:https://pokeapi.co/api/v2/pokemon/
 apaleslimghost's Pokemon colors list
 TailwindCSS for styling along custom CSS.
 
+Will implement the function for search bar soon.
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
