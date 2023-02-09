@@ -65,6 +65,11 @@
       </button>
     </div>
   </div>
+  <footer class="bg-indigo-100">
+    <div class="container mx-auto text-left mt-10 py-3">
+      <p class="text-xl">Copyright Naman</p>
+    </div>
+  </footer>
 </template>
 
 <script>
