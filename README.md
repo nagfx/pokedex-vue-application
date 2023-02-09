@@ -1,5 +1,7 @@
 # pokedex
 
+Deployed https://inquisitive-cassata-9d402a.netlify.app/
+
 This template should help get you started developing with Vue 3 in Vite.
 
 Used Pokedex API:https://pokeapi.co/api/v2/pokemon/
