@@ -12,7 +12,7 @@
       />
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-3">
-      <div class="card" v-for="(pokemon, key) in pokemons" :key="key">
+      <div class="card" v-for="(pokemon, index) in pokemons" :key="index">
         <img
           :src="`https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png?raw=true`"
           alt=""
@@ -57,11 +57,19 @@
       </div>
     </div>
     <div class="my-3 text-center">
+      <!-- The previous button only shows when the offset is not 0. -->
       <button
-        @click="loadMorePokemons"
-        class="bg-indigo-500 text-white py-2 mt-5 px-4 rounded-full"
+        v-if="offset !== 0"
+        @click="showPreviousPokemons"
+        class="bg-amber-400 text-white py-2 mt-5 px-4 mx-5 rounded-full"
       >
-        Load More
+        Previous
+      </button>
+      <button
+        @click="showNextPokemons"
+        class="bg-blue-400 text-white py-2 mt-5 px-4 rounded-full"
+      >
+        Next
       </button>
     </div>
   </div>
@@ -90,15 +98,29 @@ export default {
         let { data } = await axios.get(
           `https://pokeapi.co/api/v2/pokemon/?offset=${this.offset}&limit=${this.limit}`
         );
+        this.pokemons.length = 0;
         data.results.map(async (obj) => {
           let { data } = await axios.get(obj.url);
+          // reset the array to display specific Pokemons according to assigned offset and limit
           this.pokemons.push(data);
+        });
+        // sort function to ensure the Pokemons appear sorted
+        this.pokemons.sort((a, b) => {
+          return a.id - b.id;
         });
       } catch (err) {
         alert(err);
       }
     },
     async loadMorePokemons() {
+      this.offset += this.limit;
+      this.fetchData();
+    },
+    showPreviousPokemons() {
+      this.offset -= this.limit;
+      this.fetchData();
+    },
+    showNextPokemons() {
       this.offset += this.limit;
       this.fetchData();
     },
